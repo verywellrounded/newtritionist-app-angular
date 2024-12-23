@@ -6,7 +6,7 @@ import {
   DocumentData,
   Firestore,
 } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +25,7 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'newtritionist-app-angular';
   fireStore: Firestore = inject(Firestore);
-  item$: Observable<DocumentData[]>;
+  item$: Observable<DocumentData[]> = of([]);
 
   constructor() {
     const itemCollection = collection(this.fireStore, 'test');
