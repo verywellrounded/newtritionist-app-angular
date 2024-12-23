@@ -1,0 +1,70 @@
+{
+  "hash": "fd68c4bc",
+  "configHash": "147a45a2",
+  "lockfileHash": "7fee6c6e",
+  "browserHash": "1f0828af",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "1325821c",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "6a4f9064",
+      "needsInterop": false
+    },
+    "@angular/fire/analytics": {
+      "src": "../../../../../../node_modules/@angular/fire/fesm2022/angular-fire-analytics.mjs",
+      "file": "@angular_fire_analytics.js",
+      "fileHash": "1a4f1817",
+      "needsInterop": false
+    },
+    "@angular/fire/app": {
+      "src": "../../../../../../node_modules/@angular/fire/fesm2022/angular-fire-app.mjs",
+      "file": "@angular_fire_app.js",
+      "fileHash": "3e3edd75",
+      "needsInterop": false
+    },
+    "@angular/fire/firestore": {
+      "src": "../../../../../../node_modules/@angular/fire/fesm2022/angular-fire-firestore.mjs",
+      "file": "@angular_fire_firestore.js",
+      "fileHash": "4ed51cbc",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "01727db8",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "170a112f",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-HY2SCDET": {
+      "file": "chunk-HY2SCDET.js"
+    },
+    "chunk-MDBF2N42": {
+      "file": "chunk-MDBF2N42.js"
+    },
+    "chunk-J4OPELNQ": {
+      "file": "chunk-J4OPELNQ.js"
+    },
+    "chunk-RJ333LTV": {
+      "file": "chunk-RJ333LTV.js"
+    },
+    "chunk-LQ2BAYP7": {
+      "file": "chunk-LQ2BAYP7.js"
+    },
+    "chunk-4RN53UKD": {
+      "file": "chunk-4RN53UKD.js"
+    }
+  }
+}
