@@ -7,14 +7,8 @@ import { AppComponent } from './app.component';
  */
 export const routes: Routes = [
   {
-    title: 'Default',
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
-  },
-  {
     title: '',
-    path: 'home',
+    path: '',
     component: AppComponent,
   },
   {
