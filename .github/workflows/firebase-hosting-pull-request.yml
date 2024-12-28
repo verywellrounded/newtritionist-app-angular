@@ -3,9 +3,12 @@
 
 name: Deploy to Firebase Hosting on PR
 on:
-  pull_request_target:
+  push:
     branches:
-      - main
+      - "**"
+  # pull_request_target:
+  #   branches:
+  #     - main
 jobs:
   build_and_preview:
     permissions:
