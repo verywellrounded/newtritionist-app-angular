@@ -10,6 +10,7 @@ import { routes } from './app.routes';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideAnalytics, getAnalytics } from '@angular/fire/analytics';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyApeHp8f3VbMir4QeabWv-tBG8gbPjh6-0',
@@ -29,7 +30,7 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideAnalytics(() => getAnalytics()),
+    provideAnalytics(() => getAnalytics()), provideAnimationsAsync(),
     // provideAppCheck(() => {
     //   // TODO get a reCAPTCHA Enterprise here https://console.cloud.google.com/security/recaptcha?project=_
     //   const provider =

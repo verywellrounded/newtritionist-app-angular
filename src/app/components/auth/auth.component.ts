@@ -24,12 +24,11 @@ import {
 @Component({
   selector: 'app-login',
   imports: [NgOptimizedImage],
-  template: ` <div>
-    <h1 className="bannerText">Authentication Page</h1>
-    <div className="signupContainer__box__google">
+  template: ` <h1 class="bannerText">Authentication Page</h1>
+    <div class="signupContainer__box__google">
       //TODO: Wanna change this so the text is below the icon but this will do
       for now
-      <Button (onClick)="handleGoogleSignUp($event)" variant="contained">
+      <Button (click)="handleGoogleSignUp($event)" variant="contained">
         <span>
           <img
             ngSrc="assets/1844710_grape_nutrition_food_icon.svg"
@@ -43,8 +42,7 @@ import {
       @if(this.error){
       <p>(googleErrorMessage)</p>
       }
-    </div>
-  </div>`,
+    </div>`,
   standalone: true,
   styleUrl: './auth.component.css',
 })
