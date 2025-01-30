@@ -8,9 +8,6 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { ScanComponent } from './components/scan/scan.component';
 import { authGuardGuard } from './auth-guard.guard';
 
-/*
- * When it fails to find a route it redirects and then the page loads only one component. Why ?
- */
 export const routes: Routes = [
   {
     title: 'root',
