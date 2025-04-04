@@ -1,4 +1,17 @@
 #reader {
   margin: 20px auto;
   text-align: center;
+  grid-row: 2 / -1;
+  grid-row-end: row3;
+  /* grid-column: 1 / -1; Span all columns */
+  grid-column-end: lastCol;
+
+  width: 100%;
+}
+.title {
+  grid-row-start: row1;
+  grid-column-start: col2;
+  grid-column-end: lastCol;
+  justify-self: center;
+  align-self: center;
 }

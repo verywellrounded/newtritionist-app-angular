@@ -26,7 +26,7 @@ export class NavComponent {
   constructor() {}
 
   navigateTo(pageUrl: string) {
-    console.log('Navigating to auth');
+    console.log('Navigating to ' + pageUrl);
     this.router.navigate([`/${pageUrl}`]);
   }
 }
