@@ -1,1 +1,17 @@
 <p>scan works!</p>
+<div>
+  <h2>Scanned item</h2>
+  <p id="result">
+    {{ currentScannedItem() }}
+  </p>
+</div>
+<div id="reader" width="600px"></div>
+<script src="./dist/html5-qrcode.js"></script>
+<input type="file" id="qr-input-file" accept="image/*" capture />
+
+<div>
+  <h2>Scanned item</h2>
+  <p if="result">
+    {{ currentScannedItem() }}
+  </p>
+</div>

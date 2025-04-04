@@ -17,16 +17,13 @@ import { MatIconModule } from '@angular/material/icon';
       <mat-icon>Explore</mat-icon>
     </Button>
   `,
-  styleUrl: './nav.component.css',
 })
 export class NavComponent {
+  // TODO: I dont like this way of setting className find a neater way
   @HostBinding('class.navContainer') isNavContainer = true;
   router: Router = inject(Router);
-  @Input() className: string;
 
-  constructor() {
-    this.className = 'navContainer';
-  }
+  constructor() {}
 
   navigateTo(pageUrl: string) {
     console.log('Navigating to auth');

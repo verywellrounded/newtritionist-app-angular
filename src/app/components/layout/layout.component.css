@@ -7,7 +7,7 @@
   grid-template-columns: [col1] 1fr [col2] auto [lastCol] 1fr;
 }
 
-.navcontainer {
+.navContainer {
   display: flex;
   /* border: solid salmon; */
   grid-row-start: lastRow;
@@ -37,7 +37,7 @@
     grid-template-columns: [col1] 1fr [col2] 50fr [lastCol] 1fr; /*Fr is the devil. Needed to make this a size to get centering smooth*/
   }
 
-  .navcontainer {
+  .navContainer {
     display: flex;
     /* border: solid salmon; */
     grid-row-start: lastRow;
@@ -60,7 +60,7 @@
     grid-template-columns: [col1] 1fr [col2] auto [lastCol] 1fr;
   }
 
-  .navcontainer {
+  .navContainer {
     display: flex;
     /* border: solid salmon; */
     grid-row-start: lastRow;

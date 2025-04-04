@@ -22,7 +22,7 @@ export const routes: Routes = [
       {
         title: 'Layout container',
         path: 'home',
-        component: LayoutComponent, // probably should use this in each component instead of routing directly to it
+        component: HomeComponent,
         canActivate: [authGuardGuard],
       },
       {
