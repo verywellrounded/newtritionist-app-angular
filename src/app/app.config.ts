@@ -19,6 +19,7 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { routes } from './app.routes';
 import { authReducer, AuthState } from './store/reducers/auth.reducer';
+import { provideHttpClient } from '@angular/common/http';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyApeHp8f3VbMir4QeabWv-tBG8gbPjh6-0',
@@ -43,5 +44,6 @@ export const appConfig: ApplicationConfig = {
     provideStore<{ auth: AuthState }>({ auth: authReducer }), // standalone way of registering store
     provideEffects(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideHttpClient(),
   ],
 };

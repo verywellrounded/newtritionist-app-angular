@@ -1,20 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-layout',
-  imports: [NavComponent, CommonModule, HomeComponent],
+  imports: [NavComponent, CommonModule],
   template: `
     <div class="layoutContainer">
       <!-- <link rel="manifest" href="/manifest.json"></link> -->
-      <ng-content>
-        <app-home style="border: 1px solid #ddd;"></app-home>
-        @if(displayNavBar){
-        <app-nav [class]="navClassName"></app-nav>
-        }
-      </ng-content>
+      <ng-content></ng-content>
+      <!-- Allows the child content to be projected here Any content inside 
+       <app-layout> in the child component will be projected into the <ng-content> tag--->
+      @if(displayNavBar){
+      <app-nav></app-nav>
+      }
     </div>
   `,
   styleUrl: './layout.component.css',
