@@ -1,16 +1,4 @@
-import { NgOptimizedImage } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import {
-  Firestore,
-  addDoc,
-  collection,
-  doc,
-  getDocs,
-  query,
-  updateDoc,
-  where,
-} from '@angular/fire/firestore';
-
+import { inject, Injectable } from '@angular/core';
 import {
   Auth,
   getRedirectResult,
@@ -20,41 +8,35 @@ import {
   User,
   UserCredential,
 } from '@angular/fire/auth';
+import {
+  addDoc,
+  collection,
+  doc,
+  Firestore,
+  getDocs,
+  query,
+  updateDoc,
+  where,
+} from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { login } from '../store/actions/auth.actions';
+import { AuthState } from '../store/reducers/auth.reducer';
 
-@Component({
-  selector: 'app-login',
-  imports: [NgOptimizedImage],
-  template: ` <div>
-    <h1 className="bannerText">Authentication Page</h1>
-    <div className="signupContainer__box__google">
-      //TODO: Wanna change this so the text is below the icon but this will do
-      for now
-      <Button (onClick)="handleGoogleSignUp($event)" variant="contained">
-        <span>
-          <img
-            ngSrc="assets/1844710_grape_nutrition_food_icon.svg"
-            height="200"
-            width="200"
-            alt="Grape Logo"
-          />
-        </span>
-        Sign Up with Google
-      </Button>
-      @if(this.error){
-      <p>(googleErrorMessage)</p>
-      }
-    </div>
-  </div>`,
-  standalone: true,
-  styleUrl: './auth.component.css',
+@Injectable({
+  providedIn: 'root',
 })
-export class AuthComponent {
+export class AuthService {
   db: Firestore = inject(Firestore);
   auth: Auth = inject(Auth);
   cookie: Map<String, {}> = new Map();
   googleErrorMessage: string = '';
   error: boolean = false;
-  // router: Router = inject(Router);
+  router: Router = inject(Router);
+  store: Store<AuthState> = inject(Store);
+  constructor() {
+    console.log('Auth Service constructed');
+  }
 
   log = () => {
     console.log('Logging');
@@ -102,7 +84,7 @@ export class AuthComponent {
     let result: UserCredential | null = null;
     try {
       // Sign in with a pop-up window
-      // 💡Sign in with popup seems less error prone and still a smooth expereince
+      // 💡Sign in with popup seems less error prone and still a smooth experience
       console.log('Trying to sign in with popup');
       result = await signInWithPopup(this.auth, provider);
 
@@ -122,7 +104,7 @@ export class AuthComponent {
       const errorCode = err.code;
 
       this.error = true;
-
+      console.log('Error code: ', errorCode);
       switch (errorCode) {
         case 'auth/operation-not-allowed':
           this.googleErrorMessage = 'Email/password accounts are not enabled.';
@@ -150,13 +132,27 @@ export class AuthComponent {
       }
     }
 
-    if (null !== result) {
+    if (result && result.user) {
       const user = result.user;
       console.log('Signed in result', result);
+      // this.authService.save(user);
       this.saveUserInfo(user);
+      this.store.dispatch(
+        login({
+          userInfo: {
+            uid: user.uid,
+            displayName: user.displayName,
+            email: user.email,
+            created: user.metadata.creationTime,
+            lastLogin: user.metadata.lastSignInTime,
+            providerId: user.providerId,
+          },
+        })
+      );
+      console.log('supposed to route to /home');
+      this.router.navigateByUrl('/home');
     } else {
       console.log('login failed. Result is null', result);
     }
-    // this.router.navigateByUrl('/');
   };
 }
